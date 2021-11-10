@@ -24,16 +24,16 @@ namespace HW11
             Departments = new List<Department>();
         }
 
-        public void AddEmployee(string fitstName, string lastName, string position, string phoneNumber, string passportNumber)
+        public void AddEmployee(string fitstName, string lastName, string position, string phoneNumber, string passportNumber, Department department)
         {
             Employee newEmployee = new Employee(fitstName, lastName, position, phoneNumber, passportNumber);
-            this.Departments[1].Employees.Add(newEmployee);
-
-
-
-
+            int index = GetDepartmentListIndex(department);
+            this.Departments[index].Employees.Add(newEmployee);
         }
 
-        
+        private int GetDepartmentListIndex(Department department)
+        {
+            return this.Departments.IndexOf(department);
+        }
     }
 }
