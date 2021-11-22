@@ -6,18 +6,24 @@ namespace HW11
     {
         static void Main(string[] args)
         {
-            Company company = new Company();
-            company = AutoInsert();
+            Company company = new Company("MyCompany");
 
+            for(int i =0; i<10; i++)
+            {
+                company.AddDepartment($"dep_{i}");
+
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                company.Departments[0].AddDep(new Department($"dep_{i}_{i}"));
+
+            }
+            
             Console.ReadKey();
+
         }
 
-        private static Company AutoInsert()
-        {
-            Company company = new Company();
-
-
-            return company;
-        }
+        
     }
 }
